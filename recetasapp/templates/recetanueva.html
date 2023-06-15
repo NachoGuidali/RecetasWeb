@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block titulo %} Nueva Receta {% endblock %}
+
+
+{% block content %}
+
+<div>
+    <form method="post">
+        {% csrf_token %}
+    {{ Receta_form.as_p }}
+    {{ Ingrediente_FormSet.management_form }}
+    {{ Paso_FormSet.management_form }}
+    {% for form in Ingrediente_FormSet %}
+      {% if form.instance.pk %}
+        <input type="hidden" name="{{ form.prefix }}-DELETE" id="{{ form.prefix }}-DELETE" />
+      {% endif %}
+      {{ form.as_p }}
+    {% endfor %}
+    {% for form in Paso_FormSet %}
+      {% if form.instance.pk %}
+        <input type="hidden" name="{{ form.prefix }}-DELETE" id="{{ form.prefix }}-DELETE" />
+      {% endif %}
+      {{ form.as_p }}
+    {% endfor %}
+        <button type="submit">Subir Receta</button>
+      </form>
+</div>
+
+
+{% endblock %}
+
