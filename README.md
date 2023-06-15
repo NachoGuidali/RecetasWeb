@@ -18,4 +18,7 @@
  - CSS <img src="https://cdn-icons-png.flaticon.com/512/5968/5968242.png" alt="" width= "20" height= "20">
  - Django <img src="https://icon-library.com/images/django-icon/django-icon-0.jpg" alt="" width= "20" height= "20">
 
-## 
+## Proyecto Dockerizado
+### Si desea levantar el proyecto utilizando docker necesita:
+ - Tener Docker Instalado
+ - En terminal dentro de la carpeta que contiene el Docker-compose ejecturar el comando : docker-compose up
