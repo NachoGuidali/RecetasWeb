@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+recetas | home
+{% endblock%}
+
+{% block content %}
+<h1> Recetas </h1>
+
+
+<div class="contenedor_recetas">
+    {% for receta in recetas %}
+
+    <div class="receta">
+        
+        <p class="titulo_receta">{{receta.nombre}}</p>
+    
+        <ul>
+            <p>Ingredientes:</p>
+            {% for ingrediente in receta.ingredientes.all %}
+            <li>
+                {{ingrediente.nombre }} {{ingrediente.cantidad}} {{ingrediente.unidad}}
+            </li>
+            {% endfor %}
+            <br>
+            <p>Pasos:</p>
+            {% for paso in receta.paso.all %}
+            
+            <ol>
+                {{ paso.numero }} : {{ paso.explicacion }}
+            </ol>
+            {% endfor %}
+        </ul>
+        <div class="contenedor_ver_mas">
+            <a href="{% url 'receta' slug=receta.slug %}"> <button class="ver_mas">Ver mas</button></a>
+        </div>
+        
+
+    </div>
+
+    {% endfor %}
+</div>
+
+
+{% endblock %}

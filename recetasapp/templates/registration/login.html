@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block titulo %} Recetas | Login {% endblock %}
+
+{% block content %} 
+<h1>Login</h1>
+{% if error_message %}
+    <div class="alert_cartel">
+        <div class="alert">
+        {{ error_message }}
+        </div>
+    </div>    
+{% endif %}
+<form action="" method="post">
+    <div class="titulo">
+        <h3>Inicie Sesion o Registrese para continuar</h3>
+
+    </div>
+    {% csrf_token %}
+    <div class="row">
+        <div class="column">
+            <div class="form">
+                <label for="username">Nombre de usuario:</label>
+                <input class="form-control" type="text" name="username">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="column">
+            <div class="form">
+                <label for="username">Contraseña:</label>
+                <input class="form-control" type="password" name="password">
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="row">
+        <div class="column">
+            <div class="form">
+                <a href="#">Olvide mi contraseña</a>
+                <div class="botones">
+                    <button class="" type="submit" value="ingresar">Ingresar</button>
+                    <a href="{ url 'register'}" class="button">Registrarse</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</form>
+{% endblock %}
