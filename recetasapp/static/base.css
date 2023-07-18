@@ -151,3 +151,19 @@ text-align: center;
     align-items: center;
     text-align: center;
 }
+.succes_cartel{
+   
+    
+    align-items: center;
+    margin-top: 20px;
+    margin-inline: auto;
+}
+.succes{
+    align-items: center;
+    text-align: center;
+    background-color: #13ff0b;
+    border: solid rgb(21, 255, 0);
+    text-align: center;
+    width: 420px;
+    
+}

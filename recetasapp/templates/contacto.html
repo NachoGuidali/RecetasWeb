@@ -15,7 +15,15 @@
         <div class="column">
             <div class="form">
                 <label for="email">Email: </label>
-                <input class="form-control" type="text" name="email">
+                <input class="form-control" type="text" name="email" placeholder="Ingrese su Email">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="column">
+            <div class="form">
+                <label for="name">Nombre: </label>
+                <input class="form-control" type="text" name="name" placeholder="Ingrese su nombre">
             </div>
         </div>
     </div>
@@ -24,7 +32,7 @@
             <div class="form">
                 <label for="mensaje">Mensaje:</label>
                 <br>
-                <textarea name="mensaje" id="mensaje" cols="30" rows="3"></textarea>
+                <textarea name="mensaje" id="mensaje" cols="30" rows="3" placeholder="Escriba su mensaje aqui..."></textarea>
             </div>
         </div>
     </div>
@@ -35,7 +43,7 @@
             <div class="form">
                 
                 <div class="botones">
-                    <button class="" type="submit" value="enviar">Enviar mail</button>
+                    <button class="" type="submit" value="enviar" {% if 'ok' in request.GET %}disabled style="color:grey"{% endif %}>Enviar mail</button>
                     
                 </div>
             </div>
@@ -43,6 +51,14 @@
     </div>
     
 </form>
+{% if 'ok' in request.GET %}
+    <div class="succes_cartel">
+        <div class="succes">
+        <strong style="color: green; align-items: center;">MENSAJE ENVIADO</strong>
+    
+        </div>
+    </div>    
+{% endif %}    
 {% endblock %}
  
  

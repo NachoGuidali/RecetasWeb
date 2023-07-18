@@ -21,15 +21,18 @@ def home(request):
 def contacto(request):
     context = {}
     if request.method == "POST":
+        name = request.POST.get("name")
         email = request.POST.get("email")
         mensaje = request.POST.get("mensaje")
-        mensaje_html = "Email: {} Mensaje: {}".format(email, mensaje)
+        mensaje_html = "Nombre: {} \n Email: {} \n Mensaje: {}".format(name, email, mensaje)
         send_mail("Contacto de recetas", 
                 mensaje_html,
                 email,
                 ["nachog.akd@gmail.com"],
+                
                 fail_silently=False
                 )
+        return redirect("/contacto/?ok")
     return render(request, "contacto.html", context)
 
 def login_view(request):
